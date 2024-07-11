@@ -17,3 +17,7 @@ https://github.com/Unified-Language-Model-Alignment/src
 https://huggingface.co/alexshengzhili/llava-v1.5-13b-dpo
 
 https://github.com/findalexli/mllm-dpo/blob/3059f3e77716fe12289b98bbf1676ff6061e8bf7/llava/train/train.py#L854
+
+
+
+https://huggingface.co/Intel/llava-llama-3-8b 
