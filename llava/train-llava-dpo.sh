@@ -1,0 +1,12 @@
+accelerate launch examples/scripts/dpo_visual.py \
+    --dataset_name HuggingFaceH4/rlaif-v_formatted \
+    --model_name_or_path llava-hf/llava-1.5-7b-hf \
+    --per_device_train_batch_size 2 \
+    --gradient_accumulation_steps 32 \
+    --dataset_num_proc 32 \
+    --output_dir dpo_llava_1_5 \
+    --bf16 \
+    --torch_dtype bfloat16 \
+    --gradient_checkpointing \
+    --use_peft \
+    --lora_target_modules=all-linear

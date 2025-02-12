@@ -1,0 +1,17 @@
+accelerate
+datasets
+langchain
+langchain-together
+numpy
+pandas
+peft
+pyyaml
+requests
+scikit-learn
+sqlite
+tokenizers
+torchmetrics
+torchvision
+torch
+tqdm
+transformers

@@ -6,7 +6,7 @@ llava w dpo
 
 llava kto
 
-llava KTO > DPO ~= CPO > IPO
+llava KTO > DPO ~= CPO > IPO, mdpo
 
 ORPO
 
