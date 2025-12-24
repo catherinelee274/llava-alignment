@@ -1,4 +1,4 @@
-# llava_alignment
+# LLaVa Alignment
 
 
 ther model finetune with dpo, kto, etc
