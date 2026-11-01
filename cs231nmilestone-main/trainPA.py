@@ -15,6 +15,7 @@ import evaluate as ev   #evaluate.list_evaluation_modules()
 from langchain.evaluation.qa import QAEvalChain
 from langchain_together import ChatTogether
 import wandb
+import os
 import time
 import datetime
 from peft import LoraConfig, get_peft_model
@@ -28,7 +29,7 @@ MAX_LENGTH = 64 #32 #max length for all text sequences: prompt, label, predicted
 TRAIN_SPLIT =   'train[:10]'  # 'train[:1%]'
 EVAL_SPLIT = 'train[-10:]'
 SPECIAL_TOKENS = [",",".","?","!", ":", ";", "'", '"', "(", ")", "[", "]", "{", "}", "<", ">", "-", "_", "a", "an", "the"]
-API_KEY = "b04b8ca599eb84354cde4bf4ab4cd32e13c832104c6668df71a6341e0478d50c" #Store somwhere else
+API_KEY = os.environ.get("TOGETHER_API_KEY")
 LLM_QA_MODEL = "meta-llama/Llama-3-8b-chat-hf" #model used from huggingface hosted by together.ai 
 VLFEEDBACKDATASET = "MMInstruction/VLFeedback"
 
