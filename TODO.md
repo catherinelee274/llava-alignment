@@ -1,5 +1,12 @@
 # LLaVa Alignment
 
+## November 2026
+
+- [ ] Try **mDPO**: conditional preference optimization for multimodal LLMs. Adds an image-conditioned preference term so the model can't just ignore the image and optimize on text alone. ([Wang et al., 2024](https://arxiv.org/abs/2406.11839))
+- [ ] Try **PAPO**: Perception-Aware Policy Optimization. Extends GRPO-style RL with an implicit perception loss, a KL term between outputs with the real image and with a masked image, so the policy has to rely on what it sees. ([arXiv 2507.06448](https://arxiv.org/abs/2507.06448))
+
+## Earlier notes (2024–2025)
+
 
 ther model finetune with dpo, kto, etc
 llava w dpo
