@@ -7,6 +7,38 @@ Preference alignment for vision-language models (VLMs). This repo has two parts:
 
 All of these methods skip the separate reward model and PPO loop of classic RLHF. They learn directly from preference data: a prompt and image, a preferred ("chosen") response, and a dispreferred ("rejected") one.
 
+## Background
+
+This project started in **spring 2024** (first commit May 2024). Preference alignment for VLMs was very new then. It had about eight months of prior work, nearly all of it applied DPO or RLHF to decoder-only LLaVA-style models, and most of it targeted hallucination.
+
+**Prior work when the project started:**
+
+| Date | Work | What it did |
+|---|---|---|
+| Sep 2023 | [LLaVA-RLHF](https://arxiv.org/abs/2309.14525) (Sun et al.) | Classic RLHF (reward model + PPO) for LMMs; introduced the MMHal-Bench hallucination benchmark |
+| Nov 2023 | [HA-DPO](https://arxiv.org/abs/2311.16839) (Zhao et al.) | Hallucination-aware DPO |
+| Dec 2023 | [RLHF-V](https://arxiv.org/abs/2312.00849) (Yu et al.) | DPO variant trained on fine-grained human corrections of hallucinations |
+| Dec 2023 | [Silkie / VLFeedback](https://arxiv.org/abs/2312.10665) (Li et al.) | DPO on Qwen-VL with GPT-4V-labeled preferences; source of the `MMInstruction/VLFeedback` dataset used here |
+| Feb 2024 | [POVID](https://arxiv.org/abs/2402.11411) (Zhou et al.) | DPO with AI-generated hallucinated responses as the rejected answers |
+| Feb 2024 | [MLLM-DPO](https://arxiv.org/abs/2402.10884) (Li et al.) | Compared DPO with other alignment methods on LLaVA; source of the MLLM-DPO data and the `llava-v1.5-13b-dpo` model |
+| Feb–Mar 2024 | [KTO](https://arxiv.org/abs/2402.01306), [ORPO](https://arxiv.org/abs/2403.07691) | New preference methods, tested only on text LLMs at the time |
+
+**What this project added.** Earlier VLM work almost always ran DPO alone on decoder-only models. This project:
+
+- compared **DPO, KTO, and ORPO side by side** on a VLM; KTO and ORPO had not been tested on VLMs yet
+- implemented the losses **from scratch for an encoder-decoder VLM** (BLIP), which TRL's trainers did not support
+
+**Later developments:**
+
+| Date | Work | Relevance |
+|---|---|---|
+| May 2024 | [RLAIF-V](https://arxiv.org/abs/2405.17220) (Yu et al.) | Open AI-feedback preference data for VLM trustworthiness; its dataset is used by `idefics/` |
+| Jun 2024 | [mDPO](https://arxiv.org/abs/2406.11839) (Wang et al.) | Conditional preference term so the model can't ignore the image |
+| Jul 2024 | [HF TRL: Preference Optimization for VLMs](https://huggingface.co/blog/dpo_vlm) | TRL support for DPO on VLMs; the `idefics/` and `llava/` scripts (added Feb 2025) follow it |
+| Jul 2025 | [PAPO](https://arxiv.org/abs/2507.06448) (Wang et al.) | Perception-aware policy optimization: GRPO plus an implicit perception loss |
+
+mDPO and PAPO are on the [November 2026 TODO](TODO.md).
+
 ## Project status
 
 | Component | Model | Methods | Status |
